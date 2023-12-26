@@ -1,7 +1,7 @@
 // Login.js
 
 import React, { useState } from 'react';
-import { useNavigate, Link } from 'react-router-dom';
+import { useNavigate, Link, useLocation } from 'react-router-dom';
 import '../components/LoginPage.css';
 const Login = () => {
   const navigate = useNavigate();
@@ -25,7 +25,8 @@ const Login = () => {
         // const data = await response.json();
         // Login successful, handle redirection or other actions
         console.log('Login successful', data);
-        navigate('/main');
+        console.log('Navigating to /main with state:', { username });
+        navigate('/main',{ state: { username } });
       } else {
         // Login failed, handle error message
         // const data = await response.json();
